@@ -9,7 +9,7 @@ class authServices{
 
         const response = await fetch("/api/v1/users/register", {
             method : "POST",
-            body : formData
+            body : JSON.stringify(formData)
             
         })
         if(response.ok){
