@@ -6,6 +6,7 @@ class videoServices {
         try {
             const response = await fetch
             (`/api/v1/video/get-allVideos?query=${query}&userId=${userId}&page=${page}&limit=${limit}&sortBy=${sortBy}&sortType=${sortType}`)
+            console.log(response)
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")

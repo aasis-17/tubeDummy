@@ -12,7 +12,7 @@ function useDataFetch( fetcher, ...reqData) {
          fetcher(reqData[0])
          .then(res => res.json())
         .then(data => setData(data))
-        .then(res => console.log("res",res))
+        .then(data => console.log("res",data))
         .catch(error => setError(error?.message))
         .finally(() => setIsLoading(false))
 
