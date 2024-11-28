@@ -17,6 +17,8 @@ function Home() {
   }
   const {isLoading, error, data} = useDataFetch(fetcher, searchTitle)
 
+  console.log(data)
+
   if(isLoading) return <div>loading home...</div>
 
   if(error) return <div>{error}</div>
