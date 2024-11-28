@@ -21,7 +21,7 @@ function Home() {
 
   if(isLoading) return <div>loading home...</div>
 
-  if(error) return <div>{error}</div>
+  if(error) return <div>error</div>
     
    return  (
     <>
