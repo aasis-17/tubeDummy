@@ -35,8 +35,8 @@ const userData = useSelector((state) => state.authReducer.userData)
                 (<button onClick={() => setSidebar((prev) => !prev)}>
                     <div className='flex gap-2 items-center'>
                     <div className='w-8 h-8 overflow-hidden  rounded-full'>
-                        <div className='w-full object-cover bg-white'>
-                            <img src={userData.avatar} alt='ava'/>
+                        <div className='w-full h-full '>
+                            <img className='w-full h-full object-cover' src={userData.avatar} alt='ava'/>
                         </div>
                     </div>
                     <div>

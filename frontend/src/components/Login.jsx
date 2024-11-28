@@ -26,7 +26,7 @@ function Login() {
                 navigate("/")
             }
         }catch(error){
-            setHandleError(error.message)
+            setHandleError("Password or email does not match !!")
         }
     }
 
@@ -34,7 +34,7 @@ function Login() {
     return authService.refreshAccessToken()
   }
 
-  const {isLoading, error, data} = useDataFetch(fetcher)
+  const {isLoading, data} = useDataFetch(fetcher)
 
   if (isLoading) return <div>loading refresh...</div>
 
@@ -51,6 +51,7 @@ function Login() {
             <InputField 
             label = "Email"
             type = "email"
+            onClick = {() => setHandleError("")}
             classLabel="block text-m font-medium text-gray-700"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             placeholder = "Email or username"
@@ -66,12 +67,14 @@ function Login() {
             type = "password"
             classLabel="block text-m font-medium text-gray-700"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+            onClick = {() => setHandleError("")}
             placeholder = "password.."
             {...register("password", {
                 reuired : true
             })}
              />
              </div>
+             {handleError ? <p className='text-red-500 text-xs'>{handleError}</p> : ""}
 
              <div className="text-sm">
               <Link  className="font-medium text-blue-600 hover:text-blue-500">Forgot your password?</Link>

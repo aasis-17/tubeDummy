@@ -53,18 +53,20 @@ function VideoDetail() {
     
   return (
     <>     
-      <div className="flex flex-col p-2">
-        <div className="flex flex-1">
+      <div className="flex-wrap p-2 md:flex">
+        {/* <div className="flex flex-1 flex-wrap"> */}
 
                     {/* Video Section */}
 
-          <div className="flex-1 mr-2 rounded-lg">
+          <div className=" flex-1 md:mr-2 rounded-lg">
              <VideoSection />           
           </div>
-
-          <LeftSection />
+          <div className=" md:flex-none md:w-1/3 w-full  mt-2 bg-gray-200 p-2 md:max-h-screen relative">
+           <LeftSection />
+          </div>
+          
         
-        </div>
+        {/* </div> */}
 
           {/* Related Videos */}
         {/* <div className="bg-gray-300 p-4 mt-4">

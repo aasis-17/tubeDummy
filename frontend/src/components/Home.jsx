@@ -24,14 +24,14 @@ function Home() {
    return  (
     <>
     {/* <Container className='mt-16'> */}
-      <div className=" flex justify-evenly flex-wrap gap-y-6 " >   
+      <div className=" flex-col w-full  sm:flex-wrap sm:flex justify-evenly sm:gap-y-6 " >   
         { data?.data.allVideos.map((video) => {
           const convertTime = useTimeConverterHook(video.createdAt)
             return(
-              <div key={video._id}>
+              <div className='w-full px-3' key={video._id}>
 
-              <Link state={video.owner.username} className="cursor-pointer"  to={`/video-detail/${video._id}/description`}  >
-                <div className="  bg-gray-300 w-[350px] h-[230px] rounded  shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Link state={video.owner.username} className="cursor-pointer "  to={`/video-detail/${video._id}/description`}  >
+                <div className=" bg-gray-300 w-full sm:w-[350px] h-[230px] rounded  shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className=" h-full rounded overflow-hidden shadow-lg">
                     <div className='bg-blue-300 h-34 overflow-hidden cursor-pointer'>
                       <img className="w-full h-[160px] object-cover" src={video.thumnail} alt="Video Thumbnail"/>

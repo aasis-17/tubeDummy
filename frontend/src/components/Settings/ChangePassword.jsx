@@ -16,17 +16,19 @@ function ChangePassword() {
 
     const {mutateAsync, isLoading} = useMutation({
         mutationFn : (formData) => authService.changePassword(formData),
-        onSettled : (res) => !res.ok ? setOnError("Incorrect password") : reset()   
+        onError : () => setOnError("Invalid old Password!!"), 
+        onSuccess : () => {alert("Password changed successfully!!"), reset()}  
     })
-    console.log(isLoading)
-    const changePassword = (formData) => {
-        mutateAsync(formData)
-    }
+  
+    // const changedPassword = (formData) => {
+    //     setOnError("")
+    //     mutateAsync(formData)   
+    // }
   return (
     <div className="max-w-md  p-6 rounded-lg ">
       <h2 className="text-3xl font-semibold mb-10">Change Password</h2>
       {/* {isSuccess && <div className="text-green-500 mb-4">{error}</div>} */}
-      <form onSubmit={handleSubmit(changePassword)} >
+      <form onSubmit={handleSubmit(mutateAsync)} >
         <div className="mb-6">
           <label className="block text-gray-700 text-base font-semibold mb-2" htmlFor="oldPassword">
             Old Password
@@ -56,6 +58,7 @@ function ChangePassword() {
              type={visibility.newPassword ? "text" : "password"}
             id="newPassword"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            onClick ={() => setOnError("")}
             placeholder="Enter new password"
             {...register("newPassword",{required : true})}
           />
@@ -65,6 +68,7 @@ function ChangePassword() {
             defaultChecked = {visibility.newPassword}
             onClick={() => setVisibility(prev => ({...prev, newPassword : !prev.newPassword}))}
              />
+             
         </div>
         <div className="flex items-center justify-between">
           <button 

@@ -65,12 +65,12 @@ class authServices{
 
     async changePassword(formData) {
         try {
-            const response =  fetch(`/api/v1/users/change-password`,{
+            const response =  await fetch(`/api/v1/users/change-password`,{
                 method : "POST",
-                body : JSON.stringify(formData),
                 headers : {
                     "content-type" : "application/json"
-                }
+                },
+                body : JSON.stringify(formData)
             })
            if(response.ok) return response.json()
            else{
@@ -78,7 +78,7 @@ class authServices{
         }
 
     }catch(error){
-        throw new Error(error?.message);
+        throw new Error(error?.message)
     }
     }
 

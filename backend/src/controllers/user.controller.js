@@ -229,11 +229,15 @@ const loginUser = asyncHandler(async (req, res) => {
 
  const changeOldPassword = asyncHandler(async(req, res) => {
 
+    console.log(req.body)
+
     const {oldPassword, newPassword} = req.body
+
 
     const user = await User.findById(req.user?._id)
 
     const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
+    console.log(isPasswordCorrect)
 
     if(!isPasswordCorrect){
         throw new ApiError(400, "Invaild oldpassword!!")

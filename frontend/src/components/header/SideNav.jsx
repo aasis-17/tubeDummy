@@ -65,7 +65,7 @@ function SideNav({sidebar, setSidebar}) {
         },
         {
             name : "Setting",
-            slug : "/setting",
+            slug : "/setting/accountSetting",
             status : true,
             logo : faScrewdriverWrench 
 

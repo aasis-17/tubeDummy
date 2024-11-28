@@ -24,7 +24,8 @@ function LeftSection() {
       // }
     ]
   return (
-      <div className="w-1/3  bg-gray-200 p-2 max-h-screen relative">
+    <>
+       {/* <div className="w-1/3  bg-gray-200 p-2 max-h-screen relative"> */}
           <nav className='h-11 flex gap-7  text-center mb-2 '>
 
             <Navigation 
@@ -36,7 +37,9 @@ function LeftSection() {
             <div>
               <Outlet /> 
             </div>
-      </div>
+      {/* </div> */}
+      </>
+      
   )
 }
 
