@@ -10,6 +10,7 @@ function useDataFetch( fetcher, ...reqData) {
         setError("")
 
          fetcher(reqData[0])
+         .then(res => res.json())
         .then(data => setData(data))
         .then(res => console.log("res",res))
         .catch(error => setError(error?.message))
