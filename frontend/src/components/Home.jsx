@@ -24,8 +24,8 @@ function Home() {
    return  (
     <>
     {/* <Container className='mt-16'> */}
-      <div className=" flex-col w-full  sm:flex-wrap sm:flex justify-evenly sm:gap-y-6 " >   
-        { data?.data.allVideos.map((video) => {
+      <div className=" w-full  sm:flex-wrap sm:flex justify-evenly sm:gap-y-6 " >   
+        { data?.data.allVideos?.map((video) => {
           const convertTime = useTimeConverterHook(video.createdAt)
             return(
               <div className='w-full px-3' key={video._id}>
