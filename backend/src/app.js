@@ -25,6 +25,7 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
+app.disable('etag')
 //import route
 
 import userRouter from "./routes/user.route.js"
