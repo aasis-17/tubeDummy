@@ -4,7 +4,7 @@ class videoServices {
     async getAllVideos (query="", userId="", page=1, limit=10,sortBy="createdBy", sortType="des") {
         console.log("userId",userId,"query", query)
         try {
-            const response = await fetch(`url/api/v1/video/get-allVideos?query=${query}&userId=${userId}&page=${page}&limit=${limit}&sortBy=${sortBy}&sortType=${sortType}`)
+            const response = await fetch(`/api/v1/video/get-allVideos?query=${query}&userId=${userId}&page=${page}&limit=${limit}&sortBy=${sortBy}&sortType=${sortType}`)
  
             if (response.ok) return response
             else{
