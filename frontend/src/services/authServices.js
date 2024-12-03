@@ -35,7 +35,8 @@ class authServices{
                     email,
                     username : email,
                     password
-                })
+                }),
+                credentials: 'include'
             })
 
             if(response.ok) return response.json()
@@ -85,7 +86,11 @@ class authServices{
     async getCurrentUser(){
         try{
             
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/current-user`)
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/current-user`,
+            {
+                credentials: 'include'
+            }
+        )
 
         if(response.ok) return response.json()
         else{
