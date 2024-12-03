@@ -3,7 +3,7 @@ class playlistServices {
 
     async getUserPlaylist (userId){
         try{
-            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/playlist/get-userPlaylist/${userId}`)
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/get-userPlaylist/${userId}`)
             console.log(response)
             if (response.ok){
                return response.json()
@@ -18,7 +18,7 @@ class playlistServices {
 
     async addVideoToPlaylist (playlistId, videoId) {
         try {
-            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/playlist/addvideo-to-playlist/${playlistId}/${videoId}`,
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/addvideo-to-playlist/${playlistId}/${videoId}`,
                 {
                     method : "PATCH"
                 }
@@ -36,7 +36,7 @@ class playlistServices {
 
     async removeVideoFromPlaylist (playlistId, videoId) {
         try {
-            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/playlist/remove-video/${playlistId}/${videoId}`,
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/remove-video/${playlistId}/${videoId}`,
                 {
                     method : "DELETE"
                 }
@@ -53,7 +53,7 @@ class playlistServices {
 
     async createPlaylist (name){
         try{
-            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/playlist/create-playlist`,
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/create-playlist`,
                 {
                     method : "POST",
                     headers : {
@@ -76,7 +76,7 @@ class playlistServices {
 
     async deletePlaylist(playlistId) {
         try{
-            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/playlist/delete-playlist/${playlistId}`,
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/delete-playlist/${playlistId}`,
                 {
                     method : "DELETE"
                 }
