@@ -2,7 +2,7 @@ class subscriptionServices {
 
     async toggleSubscription (channelId){
         try{
-            const response = await fetch(`/api/v1/subscription/toggle-subscription/${channelId}`)
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/subscription/toggle-subscription/${channelId}`)
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")

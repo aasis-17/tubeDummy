@@ -2,7 +2,7 @@
 
     async getUserProfile(channelId, loginUser= ""){
         try{
-        const response = await fetch(`/api/v1/users/channel-profile/${channelId}?loginUser=${loginUser}`)
+        const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/channel-profile/${channelId}?loginUser=${loginUser}`)
         if(response.ok) return response.json()
         else{
             throw new Error("something went wrong!!")
@@ -16,7 +16,7 @@
     async updateDetail (accountDetail){
 
         try {
-            const response = await fetch(`/api/v1/users/update-details`,{
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/update-details`,{
                 method : "PATCH",
                 body : JSON.stringify(accountDetail),
                 headers : {
@@ -35,7 +35,7 @@
 
     async changePassword (passwords) {
         try {
-            const response = await fetch(`/api/v1/users/change-password`,{
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/change-password`,{
                 method : "POST",
                 body : JSON.stringify(passwords),
                 headers : {
@@ -55,7 +55,7 @@
 
     async updateAvatar (avatar){
         try {
-            const response = await fetch("/api/v1/users/update-avatar",
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/update-avatar`,
                 {
                     method : "PATCH",
                     body : avatar,
@@ -74,7 +74,7 @@
 
     async updateCoverImage (coverImage){
         try {
-            const response = await fetch("/api/v1/users/update-coverImage",
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/update-coverImage`,
                 {
                     method : "PATCH",
                     body : coverImage,

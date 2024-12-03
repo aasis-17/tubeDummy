@@ -7,9 +7,9 @@ class authServices{
         const email = formData.get("email")
         const password = formData.get("password")
 
-        const response = await fetch("/api/v1/users/register", {
+        const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/register`, {
             method : "POST",
-            body : JSON.stringify(formData)
+            body : formData
             
         })
         if(response.ok){
@@ -26,7 +26,7 @@ class authServices{
 
     async login({email, password}){
         try{
-            const response = await fetch("/api/v1/users/login", {
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/login`, {
                 method : "POST",
                 headers : {
                     "content-type" : "application/json"
@@ -50,7 +50,7 @@ class authServices{
 
     async logout(){
         try{
-            const response = await fetch("/api/v1/users/logout",{
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/logout`,{
                 method: "POST"
             })
             if(response.ok) return response.json()
@@ -65,7 +65,7 @@ class authServices{
 
     async changePassword(formData) {
         try {
-            const response =  await fetch(`/api/v1/users/change-password`,{
+            const response =  await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/change-password`,{
                 method : "POST",
                 headers : {
                     "content-type" : "application/json"
@@ -85,7 +85,7 @@ class authServices{
     async getCurrentUser(){
         try{
             
-        const response = await fetch("/api/v1/users/current-user")
+        const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/current-user`)
 
         if(response.ok) return response.json()
         else{
@@ -100,7 +100,7 @@ class authServices{
 
     async channelDashboard (channelId) {
         try {
-            const response = await fetch(`/api/v1/dashboard/getchannel-stats/${channelId}`)
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/dashboard/getchannel-stats/${channelId}`)
 
             if (response.ok) return response.json()
 
@@ -113,7 +113,7 @@ class authServices{
 
     async refreshAccessToken () {
         try {
-            const response = await fetch("/api/v1/users/refreshed-accesstoken",{
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/refreshed-accesstoken`,{
                 method : "POST",
                 
             })
@@ -130,7 +130,7 @@ class authServices{
 
     async deactivateAccount (){
         try {
-            const response = await fetch('/api/v1/users/deactivate-account',
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/users/deactivate-account`,
                 {
                     method : "DELETE"
                 }

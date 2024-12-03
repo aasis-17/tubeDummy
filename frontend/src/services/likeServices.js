@@ -2,7 +2,7 @@ class likeServices {
 
     async toggleVideoLike (videoId) {
         try{
-            const response = await fetch(`/api/v1/like/toggle-videoLike/${videoId}`)
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/like/toggle-videoLike/${videoId}`)
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")
@@ -15,7 +15,7 @@ class likeServices {
 
     async toggleCommentLike (commentId){
         try{
-            const response = await fetch(`/api/v1/like/toggle-commentLike/${commentId}`)
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/like/toggle-commentLike/${commentId}`)
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")
@@ -29,7 +29,7 @@ class likeServices {
 
     async getAllLikedVideos () {
         try {
-            const response = await fetch('/api/v1/like/get-allLiked-videos')
+            const response = await fetch(`${import.meta.VITE_BACKEND_URL}/api/v1/like/get-allLiked-videos`)
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")
