@@ -21,14 +21,14 @@ function Login() {
             const userStatus = await authService.login(data)
             if(userStatus){
                 const userData = await authService.getCurrentUser()
-
+                
                 if(userData) {
                   dispatch(storeLogin(userData))
                   navigate("/")
                 }
             }
         }catch(error){
-            setHandleError("Password or email does not match !!")
+            setHandleError("Password or email does not match !!", error.message)
         }
     }
 
