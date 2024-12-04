@@ -86,11 +86,7 @@ class authServices{
     async getCurrentUser(){
         try{
             
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/current-user`,
-            {
-                credentials: 'include'
-            }
-        )
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/current-user` )
 
         if(response.ok) return response.json()
         else{
