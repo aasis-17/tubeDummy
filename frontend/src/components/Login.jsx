@@ -28,7 +28,7 @@ function Login() {
                 }
             }
         }catch(error){
-            setHandleError("Password or email does not match !!", error.message)
+            setHandleError("Password or email does not match !!")
         }
     }
 
