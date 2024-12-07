@@ -21,7 +21,7 @@ function Login() {
             const userStatus = await authService.login(data)
             if(userStatus){
                 const userData = await authService.getCurrentUser()
-                
+                console.log(userData)
                 if(userData) {
                   dispatch(storeLogin(userData))
                   navigate("/")
