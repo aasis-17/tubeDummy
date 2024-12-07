@@ -22,10 +22,13 @@ function SideNav({sidebar, setSidebar}) {
 
     const logout = async () => {
         try{
-            await authService.logout()
-            window.location.reload()
-            dispatch(storeLogout())    
-            navigate("/") 
+            const loggedOut = await authService.logout()
+            if (loggedOut) {
+                //window.location.reload()
+                dispatch(storeLogout())    
+                navigate("/") 
+            }
+
             
         }catch(error){
             setError(error?.message)
