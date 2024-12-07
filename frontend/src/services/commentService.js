@@ -2,7 +2,11 @@ class commentServices {
 
     async getVideoComment (videoId){
         try{
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/comment/getall-video-comments/${videoId}`)
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/comment/getall-video-comments/${videoId}`,
+            {
+                credentials : "include"
+            }
+        )
         if(response.ok) return response.json()
         else{
             throw new Error("something went wrong!!")
@@ -23,7 +27,8 @@ class commentServices {
                 },
                 body : JSON.stringify({
                     content : data.text
-                })
+                }),
+                credentials : "include"
             }
         )
         if(response.ok)return response.json()

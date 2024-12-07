@@ -23,7 +23,7 @@ router.route("/get-allVideos").get( getAllVideos)
 
 router.route("/get-video/:videoId").get(getVideoById)
 
-router.route("/deleteVideo/:videoId").get(verifyJWT, deleteVideo)
+router.route("/deleteVideo/:videoId").delete(verifyJWT, deleteVideo)
 
 router.route("/toggle-publishStatus/:videoId").get(verifyJWT, togglePublishStatus)
 

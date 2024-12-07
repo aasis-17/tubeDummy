@@ -72,7 +72,8 @@ class authServices{
                 headers : {
                     "content-type" : "application/json"
                 },
-                body : JSON.stringify(formData)
+                body : JSON.stringify(formData),
+                credentials : "include"
             })
            if(response.ok) return response.json()
            else{
@@ -105,7 +106,11 @@ class authServices{
 
     async channelDashboard (channelId) {
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/dashboard/getchannel-stats/${channelId}`)
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/dashboard/getchannel-stats/${channelId}`,
+                {
+                    credentials : "include"
+                }
+            )
 
             if (response.ok) return response.json()
 
@@ -120,6 +125,7 @@ class authServices{
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/refreshed-accesstoken`,{
                 method : "POST",
+
                 
             })
             console.log(response)

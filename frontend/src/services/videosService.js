@@ -18,7 +18,11 @@ class videoServices {
 
     async getVideoById(videoId, loginUser="") {
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/get-video/${videoId}?loginUser=${loginUser}`)
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/get-video/${videoId}?loginUser=${loginUser}`,
+                {
+                    credentials : "include"
+                }
+            )
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")
@@ -33,7 +37,8 @@ class videoServices {
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/upload-video`,{
                 method : "POST",
-                body : formData
+                body : formData,
+                credentials : "include"
             })
             if (response.ok) return response.json()
             else{
@@ -47,7 +52,12 @@ class videoServices {
 
     async deleteVideo (videoId){
         try{
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/deleteVideo/${videoId}`)
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/deleteVideo/${videoId}`,
+                {
+                    method : "DELETE",
+                    credentials : "include"
+                }
+            )
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")
@@ -62,7 +72,8 @@ class videoServices {
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/updateVideo/${videoId}`,{
                 method : "PATCH",
-                body : formData
+                body : formData,
+                credentials : "include"
             })
             if (response.ok) return response.json()
             else throw new Error("Something went wrong!!")

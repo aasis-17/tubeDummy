@@ -3,7 +3,11 @@ class playlistServices {
 
     async getUserPlaylist (userId){
         try{
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/get-userPlaylist/${userId}`)
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/get-userPlaylist/${userId}`,
+                {
+                    credentials : "include"
+                }
+            )
             console.log(response)
             if (response.ok){
                return response.json()
@@ -20,7 +24,8 @@ class playlistServices {
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/addvideo-to-playlist/${playlistId}/${videoId}`,
                 {
-                    method : "PATCH"
+                    method : "PATCH",
+                    credentials : "include"
                 }
             )
             if(response.ok) return response.json()
@@ -38,7 +43,8 @@ class playlistServices {
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/remove-video/${playlistId}/${videoId}`,
                 {
-                    method : "DELETE"
+                    method : "DELETE",
+                    credentials : "include"
                 }
             )
             if(response.ok) return response.json()
@@ -60,9 +66,11 @@ class playlistServices {
                         "content-type" : "application/json"
                     },
                     body : JSON.stringify(
-                        {name,
+                        {
+                        name,
                         description : name
-                    })
+                    }),
+                    credentials : "include"
             })
         if(response.ok) return response.json()
         else{
@@ -78,7 +86,8 @@ class playlistServices {
         try{
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/playlist/delete-playlist/${playlistId}`,
                 {
-                    method : "DELETE"
+                    method : "DELETE",
+                    credentials : "include"
                 }
             )
         if(response.ok) return response.json()
