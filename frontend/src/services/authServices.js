@@ -52,7 +52,8 @@ class authServices{
     async logout(){
         try{
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/logout`,{
-                method: "POST"
+                method: "POST",
+                credentials : "include"
             })
             if(response.ok) return response.json()
             else{

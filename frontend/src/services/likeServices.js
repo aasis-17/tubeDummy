@@ -29,7 +29,11 @@ class likeServices {
 
     async getAllLikedVideos () {
         try {
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/like/get-allLiked-videos`)
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/like/get-allLiked-videos`,
+                {
+                    credentials : "include"
+                }
+            )
             if (response.ok) return response.json()
             else{
                 throw new Error("something went wrong!!")
