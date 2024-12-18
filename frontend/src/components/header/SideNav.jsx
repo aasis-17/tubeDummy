@@ -24,7 +24,6 @@ function SideNav({sidebar, setSidebar}) {
         try{
             const loggedOut = await authService.logout()
             if (loggedOut) {
-                //window.location.reload()
                 dispatch(storeLogout())    
                 navigate("/") 
             }

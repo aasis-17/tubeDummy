@@ -33,7 +33,7 @@ const Settings = () => {
       </nav>
 
       {/* Right Content Section */}
-      <div className="flex-1 p-2 bg-gray-400">
+      <div className="flex-1 p-1 bg-gray-400">
         <Outlet/>
       </div>
     </div>

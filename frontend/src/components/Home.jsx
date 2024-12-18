@@ -26,20 +26,20 @@ function Home() {
    return  (
     <>
     {/* <Container className='mt-16'> */}
-      <div className=" w-full  sm:flex-wrap sm:flex justify-evenly sm:gap-y-6 " >   
+      <div className="w-full h-full flex-wrap sm:flex sm:justify-evenly  sm:gap-y-6 mt-2" >   
         { data?.data.allVideos?.map((video) => {
           const convertTime = useTimeConverterHook(video.createdAt)
             return(
-              <div className='w-full px-3' key={video._id}>
+              <div className='mb-4 px-5 ' key={video._id}>
 
               <Link state={video.owner.username} className="cursor-pointer "  to={`/video-detail/${video._id}/description`}  >
-                <div className=" bg-gray-300 w-full sm:w-[350px] h-[230px] rounded  shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className=" h-full rounded overflow-hidden shadow-lg">
-                    <div className='bg-blue-300 h-34 overflow-hidden cursor-pointer'>
+                <div className="bg-white w-full sm:w-[350px] h-[220px] rounded hover:shadow-xl transition-shadow duration-300">
+                  <div className="rounded ">
+                    <div className=' h-34 overflow-hidden cursor-pointer'>
                       <img className="w-full h-[160px] object-cover" src={video.thumnail} alt="Video Thumbnail"/>
                     </div>
                  
-                    <div className="bg-red-50 h-full  px-2 py-1 ">
+                    <div className=" px-3 ">
                       <div className="font-semibold text-lg">{video.title}</div>
                         <div className='flex justify-between'>
                             <div className="text-gray-600 text-base ">{video.owner.fullName}</div>

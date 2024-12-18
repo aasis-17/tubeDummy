@@ -18,11 +18,11 @@ const userData = useSelector((state) => state.authReducer.userData)
 
   return (
     
-    <div className='h-14 text-white  w-full sticky top-0 z-50'>
-            <nav className=' bg-gray-900 px-4 py-2 flex items-center justify-between '>
+    <div className='h-12 text-white  w-full sticky top-0 z-50'>
+            <nav className='bg-gray-900 px-4 py-2 flex items-center justify-between'>
                 {!authStatus ? (
                     <Link to={"/login" }>
-                        <div className='flex gap-2 items-center'>
+                        <div className='flex items-center'>
                             <div className='w-8 h-8 overflow-hidden  rounded-full  '>
                                 <FontAwesomeIcon icon={faCircleUser} /> 
                             </div>
@@ -49,7 +49,7 @@ const userData = useSelector((state) => state.authReducer.userData)
                 <div onClick={() => navigate("/")} className="text-2xl font-semibold">  
                     <Logo />
                 </div>
-                <div className='w-[300px]'>
+                <div className='sm:w-[300px]'>
                     <Search />
                  </div>
             </nav>

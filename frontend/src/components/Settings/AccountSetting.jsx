@@ -4,6 +4,7 @@ import { useMutation, useQuery } from 'react-query';
 import userService from '../../services/userServices';
 import { useForm} from "react-hook-form"
 import { updateUserData } from '../../store/authSlice';
+import InputField from '../ui/InputField';
 
 const AccountInfo = () => {
   // Initial state for the account information
@@ -156,9 +157,9 @@ const AccountInfo = () => {
       </div>
 
       {/* Avatar and Information */}
-      <div className="flex mt-5 items-center space-x-4 ">
+      <div className="md:flex mt-5 items-center space-x-4 ">
         {/* Avatar */}
-        <div className="relative mr-5">
+        <div className="relative mr-2">
           <img
             src={account.avatar}
             alt="Avatar"
@@ -192,19 +193,19 @@ const AccountInfo = () => {
         
         <div >
           {/* Fullname */}
-          <div className="flex mt-2 items-center space-x-2 text-gray-700">
-          <label className="text-2xl font-semibold">Fullname :</label>
+          <div className="flex mt-2 space-x-2 text-gray-700 text-xl sm:text-2xl font-semibold">
+          <label >Fullname :</label>
             {isEditing.fullname ? (
               <input
                 type="text"
                 name="fullName"
                 value={account.fullName}
                 onChange={handleInputChange}
-                className="border border-gray-300 p-2 rounded-lg"                
+                className=" p-2 rounded-lg w-1/3"                
               />
             ) : (
               <>
-                  <p className="text-2xl font-semibold">{account.fullName}</p>
+                  <p>{account.fullName}</p>
               </>    
             )}
             <button
@@ -217,8 +218,8 @@ const AccountInfo = () => {
           </div>
 
           {/* Username */}
-          <div className="flex items-center space-x-2 mt-2 text-gray-700">
-          <label className="text-2xl font-semibold">Username :</label>
+          <div className="flex items-center space-x-2 mt-2 text-gray-700 text-xl sm:text-2xl font-semibold">
+          <label>Username :</label>
             {isEditing.username ? (
               <input
                 type="text"
@@ -229,7 +230,7 @@ const AccountInfo = () => {
               />
             ) : (<>
                  
-                   <p className="text-2xl font-semibold">{account.username}</p>
+                <p>{account.username}</p>
             </>
              
             )}
@@ -241,9 +242,10 @@ const AccountInfo = () => {
             </button>
 
           </div>
-          <div className="flex items-center space-x-2 mt-2 text-gray-700">
-              <label className="text-2xl font-semibold">Email :</label>
-              <p className="text-2xl font-semibold">{account.email}</p>
+
+          <div className="flex items-center space-x-2 mt-2 text-gray-700 text-xl sm:text-2xl semi font-semibold">
+              <label>Email :</label>
+              <p>{account.email}</p>
             </div>
         </div>
       </div>

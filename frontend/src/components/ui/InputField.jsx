@@ -11,7 +11,7 @@ function InputField({
 {
     const id = useId()
   return (
-    // <div className='flex gap-2 items-center'>
+
     <>
       { label && <label className={`${classLabel}`} htmlFor={id}>{label}</label> }
         <input
@@ -21,7 +21,7 @@ function InputField({
             {...props}
             ref={ref}
              />
-    {/* // </div> */}
+
     </>
   )
 }

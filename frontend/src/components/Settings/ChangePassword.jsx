@@ -20,20 +20,17 @@ function ChangePassword() {
         onSuccess : () => {alert("Password changed successfully!!"), reset()}  
     })
   
-    // const changedPassword = (formData) => {
-    //     setOnError("")
-    //     mutateAsync(formData)   
-    // }
+
   return (
     <div className="max-w-md  p-6 rounded-lg ">
       <h2 className="text-3xl font-semibold mb-10">Change Password</h2>
       {/* {isSuccess && <div className="text-green-500 mb-4">{error}</div>} */}
       <form onSubmit={handleSubmit(mutateAsync)} >
+        
         <div className="mb-6">
-          <label className="block text-gray-700 text-base font-semibold mb-2" htmlFor="oldPassword">
-            Old Password
-          </label>
-          <input
+          <InputField
+            label = "Old Password"
+            classLabel="block text-gray-700 text-base font-semibold mb-2"
             type={visibility.oldPassword ? "text" : "password"}
             id='oldPassword'
             onClick={() => setOnError("")}
@@ -44,6 +41,7 @@ function ChangePassword() {
           {onError && <div className="text-red-500 mb-4">{onError}</div>}
           <InputField
             label = "Show Password"
+            classLabel = "text-sm text-gray-700 mx-2"
             type='checkbox'
             defaultChecked = {visibility.oldPassword}
             onClick={(e) => setVisibility(prev => ({...prev, oldPassword : e.target.checked}))}
@@ -51,11 +49,10 @@ function ChangePassword() {
         </div>
         
         <div className="mb-6">
-          <label className="block text-gray-700 text-base font-semibold mb-2" htmlFor="newPassword">
-            New Password
-          </label>
           <InputField
-             type={visibility.newPassword ? "text" : "password"}
+            label = "New Password"
+            classLabel="block text-gray-700 text-base font-semibold mb-2"
+            type={visibility.newPassword ? "text" : "password"}
             id="newPassword"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             onClick ={() => setOnError("")}
@@ -64,6 +61,7 @@ function ChangePassword() {
           />
             <InputField
             label = "Show Password"
+            classLabel = "text-sm text-gray-700 mx-2"
             type='checkbox'
             defaultChecked = {visibility.newPassword}
             onClick={() => setVisibility(prev => ({...prev, newPassword : !prev.newPassword}))}

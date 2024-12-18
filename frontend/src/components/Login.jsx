@@ -11,7 +11,7 @@ function Login() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
+    const [visibility, setVisibility] = useState(false)
     const [handleError, setHandleError] = useState("")
     const {register, handleSubmit} = useForm()
 
@@ -66,7 +66,7 @@ function Login() {
             <div>
             <InputField 
             label = "Password"
-            type = "password"
+            type={visibility ? "text" : "password"}
             classLabel="block text-m font-medium text-gray-700"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
             onClick = {() => setHandleError("")}
@@ -75,6 +75,13 @@ function Login() {
                 reuired : true
             })}
              />
+            <InputField
+            label = "Show Password"
+            classLabel = "text-xs text-gray-600 mx-2"
+            type='checkbox'
+            defaultChecked = {visibility}
+            onClick={() => setVisibility(prev => !prev)}
+             />            
              </div>
              {handleError ? <p className='text-red-500 text-xs'>{handleError}</p> : ""}
 

@@ -26,16 +26,13 @@ function App() {
 
 
     return (
-    <Container className=" bg-gray-500">
+    <Container className="">
       <QueryClientProvider client={queryClient}>
-      {/* <div className=' max-w-6xl mx-auto h-screen overflow-x-hidden'> */}
-      
         <Header />
-          <main className=' h-screen'>
-          <Outlet /> 
-          
+          <main className=''>
+            <Outlet />     
           </main>
-      {/* </div>     */}
+
       </QueryClientProvider>
      </Container>
     
