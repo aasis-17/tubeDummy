@@ -56,8 +56,7 @@ const userData = useSelector((state) => state.authReducer.userData)
             <div className={`${sidebar? " " : "-translate-x-full  "} transition delay-200 overflow-hidden w-[300px]`} >
                 <SideNav setSidebar={setSidebar}  sidebar = {sidebar}/> 
             </div>  
-                
-            
+                        
                   
             </div>
         

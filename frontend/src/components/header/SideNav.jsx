@@ -24,13 +24,13 @@ function SideNav({sidebar, setSidebar}) {
         try{
             const loggedOut = await authService.logout()
             if (loggedOut) {
-                dispatch(storeLogout())    
-                navigate("/") 
+                dispatch(storeLogout()) 
+                setSidebar(false)        
+                
             }
-
             
         }catch(error){
-            setError(error?.message)
+            //setError(error?.message)
         } 
     }
 
@@ -107,7 +107,7 @@ function SideNav({sidebar, setSidebar}) {
                     }
                     
 })}
-                <li onClick={logout} className="block my-3 py-3.5 px-3  rounded transition duration-200 hover:bg-blue-600 hover:text-white" key={logOutBtn.name}>
+                <li onClick={logout} className="block cursor-pointer my-3 py-3.5 px-3  rounded transition duration-200 hover:bg-blue-600 hover:text-white" key={logOutBtn.name}>
                     <FontAwesomeIcon className='h-6 pr-7 ' icon={logOutBtn.logo}/>
                     {logOutBtn.name}  
                 </li>

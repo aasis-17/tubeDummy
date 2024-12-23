@@ -25,7 +25,7 @@ function Search() {
         <InputField 
             type="text"
             placeholder = "Search"
-            className = "rounded-tl-md rounded-bl-md h-[35px] sm:w-60 pl-2 text-black"
+            className = "rounded-tl-md rounded-bl-md h-[35px] max-w-[30vw] sm:w-60 pl-2 text-black"
             {...register("query")} />
         
         <button className='rounded-tr-md rounded-br-md bg-blue-600 w-[30px] h-[35px]' type='submit'><FontAwesomeIcon className='h-5'  icon = {faSearch}/></button>

@@ -4,7 +4,6 @@ import { useMutation, useQuery } from 'react-query';
 import userService from '../../services/userServices';
 import { useForm} from "react-hook-form"
 import { updateUserData } from '../../store/authSlice';
-import InputField from '../ui/InputField';
 
 const AccountInfo = () => {
   // Initial state for the account information

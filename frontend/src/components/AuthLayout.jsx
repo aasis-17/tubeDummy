@@ -7,6 +7,7 @@ function PageProtector({children, authentication = true}) {
   
     const navigate = useNavigate()
     const authStatus = useSelector((state) => state.authReducer.status)
+    console.log(authStatus)
 
     const [isLoading, setIsLoading] = useState(true)
     
@@ -15,12 +16,12 @@ function PageProtector({children, authentication = true}) {
         if(authentication && authStatus !== authentication){
             navigate("/login")
         }
-        // else if(!authentication && authStatus === authentication){
-        //     navigate("/")
-        // }
+        else if(!authentication && authStatus !== authentication){
+            navigate("/")
+        }
         setIsLoading(false)
 
-    },[authStatus, navigate, authentication])
+    },[authStatus, navigate,  authentication])
 
     if(isLoading) return <div>loading...</div>
 
