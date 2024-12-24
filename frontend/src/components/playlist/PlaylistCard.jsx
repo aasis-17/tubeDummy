@@ -11,6 +11,7 @@ function PlaylistCard({playlist}) {
 
     const [handleError, setHandleError] = useState("")
     const [togglePlaylist,setTogglePlaylist] = useState(false)
+    
 
     const dispatch = useDispatch()
 
@@ -59,7 +60,7 @@ function PlaylistCard({playlist}) {
             <ul  className={` bg-red-50  w-full left-0 z-10`}>
 
               {
-              playlist?.videos.map((video) => (
+              playlist.videos?.map((video) => (
                 <li key={video._id} className="flex justify-between items-center p-2 bg-gray-50 rounded-lg shadow">
                   <img src={video.thumnail} width={'120px'} />
                   <span>{video.title}</span>

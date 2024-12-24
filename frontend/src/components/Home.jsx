@@ -30,13 +30,13 @@ function Home() {
         { data?.data.allVideos?.map((video) => {
           const convertTime = useTimeConverterHook(video.createdAt)
             return(
-              <div className='mb-4 px-5 ' key={video._id}>
+              <div className='mb-4 px-2 ' key={video._id}>
 
               <Link state={video.owner.username} className="cursor-pointer "  to={`/video-detail/${video._id}/description`}  >
-                <div className="bg-white w-full sm:w-[350px] h-[220px] rounded hover:shadow-xl transition-shadow duration-300">
-                  <div className="rounded ">
-                    <div className=' h-34 overflow-hidden cursor-pointer'>
-                      <img className="w-full h-[160px] object-cover" src={video.thumnail} alt="Video Thumbnail"/>
+                <div className="bg-white w-full sm:w-[350px] h-[220px] rounded-md hover:shadow-xl transition-shadow duration-300">
+                  <div>
+                    <div className=' h-34 overflow-hidden cursor-pointer rounded-md'>
+                      <img className="w-full h-[160px] object-cover " src={video.thumnail} alt="Video Thumbnail"/>
                     </div>
                  
                     <div className=" px-3 ">

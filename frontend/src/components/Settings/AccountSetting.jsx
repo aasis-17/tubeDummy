@@ -124,7 +124,7 @@ const AccountInfo = () => {
   };
 
   return (
-    <div>
+    <div className=''>
       {/* Cover Image */}
       <div className="relative h-48 w-full rounded-lg overflow-hidden">
         <img src={account.coverImage} alt="Cover" className="object-coverImage w-full h-full" />

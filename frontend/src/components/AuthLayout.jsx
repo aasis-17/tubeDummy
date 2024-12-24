@@ -16,9 +16,9 @@ function PageProtector({children, authentication = true}) {
         if(authentication && authStatus !== authentication){
             navigate("/login")
         }
-        else if(!authentication && authStatus !== authentication){
-            navigate("/")
-        }
+        // else if(!authentication && authStatus !== authentication){
+        //     navigate("/")
+        // }
         setIsLoading(false)
 
     },[authStatus, navigate,  authentication])

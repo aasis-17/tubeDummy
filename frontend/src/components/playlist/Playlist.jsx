@@ -45,6 +45,7 @@ function Playlist() {
             reset({text : ""})
             dispatch(addPlaylist(response.data))
             alert("Playlist created Successfully!!")
+            setCreateBtn(false)
               
         }catch(error){
             setHandleError(error?.message)
