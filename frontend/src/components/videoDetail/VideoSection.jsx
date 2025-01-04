@@ -89,20 +89,20 @@ function VideoSection() {
         allowFullScreen
         
       ></iframe>
-      <div className='w-full bg-gray-200 rounded-b-md h-[100px] mt-2'>
-        <div className='h-10 pl-24 font-semibold py-2 text-xl'>{videoDetail.detail.title}</div>
+      <div className='w-full bg-gray-200 rounded-b-md sm:h-[100px] sm:mt-2 pb-2'>
+        <div className='h-10 pl-7 sm:pl-24 font-semibold py-2 text-xl'>{videoDetail.detail.title}</div>
         <div className='flex items-center justify-between px-2'>
         <div className='flex gap-4 items-center w-[50%] justify-around'>
-          <div onClick={() => navigate(`/channel-profile/${videoDetail.detail.owner}/videos`)} className='flex cursor-pointer w-full gap-12'>
+          <div onClick={() => navigate(`/channel-profile/${videoDetail.detail.owner}/videos`)} className='flex cursor-pointer w-full gap-3 sm:gap-12'>
             <div className='w-12 h-12 rounded-full overflow-hidden'>
                 <img src={channelProfile.channelOwnerProfile.avatar} className='w-full h-full'/>
             </div>
             <div className='flex items-center'>
-                <h2 className='text-lg font-medium pr-3'>{channelProfile.channelOwnerProfile.username}</h2>
+                <h2 className='text-lg font-medium pr-1 sm:pr-3'>{channelProfile.channelOwnerProfile.username}</h2>
                 <h5 className='text-lg font-thin text-gray-500'>{channelProfile.channelOwnerProfile.subscriberCount}</h5>
             </div>
             </div>
-            <div onClick={() => debounceToggleSubscription(channelProfile.channelOwnerProfile._id)} className='cursor-pointer bg-red-500 w-56 h-10 text-white text-lg text-center content-center rounded-3xl'>
+            <div onClick={() => debounceToggleSubscription(channelProfile.channelOwnerProfile._id)} className='cursor-pointer bg-red-500 sm:w-56 h-10 text-white text-lg text-center content-center rounded-3xl p-1'>
                 {channelProfile.userSubscribedChannel ? "Subscribed" : "Subscribe"}
             </div>
         </div>

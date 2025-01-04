@@ -61,7 +61,7 @@ function UploadVideo({setToggleVideoForm, edit, video}) {
 
   return (
 
-    <div onClick={(e) => e.stopPropagation()} className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg fixed top-10 left-0 right-0 ">
+    <div onClick={(e) => e.stopPropagation()} className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg fixed top-28 left-0 right-0 ">
       <h2 className="text-2xl font-semibold mb-6">{ !edit ? "Upload Video" : "Edit video"}</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     

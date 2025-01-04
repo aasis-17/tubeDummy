@@ -10,6 +10,7 @@ import {YourVideoCard, UploadVideo} from '../index'
 function YourVideos() {
 
   const [toggleVideoForm, setToggleVideoForm] = useState(false)
+  const [toggleVideoEditForm, setToggleVideoEditForm] = useState(false)
 
   const loginUserId = useSelector(state => state.authReducer.userData?._id)
 
@@ -32,7 +33,7 @@ function YourVideos() {
         <div className='text-3xl font-semibold'>Your Videos</div>
         <span onClick={() => setToggleVideoForm(prev => !prev)} className='cursor-pointer text-2xl font-medium'>+ Upload</span>
       </div>
-      <div className="flex flex-col gap-5 max-w-auto px-5">
+      <div className="flex flex-col gap-5 max-w-auto px-5  relative ">
       {data.data.allVideos.length !== 0 ?  data.data.allVideos.map((video) => (
 
         <YourVideoCard key={video._id} video={video} />
@@ -48,6 +49,7 @@ function YourVideos() {
             </div>)
             
           }
+
     
 </div>
   )

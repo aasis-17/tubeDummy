@@ -21,8 +21,12 @@ function App() {
   if (isLoading){
     return <p>loading app...</p>
   }
-  if(data) dispatch(login(data.data))
-    else  dispatch(logout())
+  if(data){ 
+    dispatch(login(data.data))
+  }
+    else{
+      dispatch(logout())
+    }  
 
 
     return (

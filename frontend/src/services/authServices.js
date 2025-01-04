@@ -15,9 +15,10 @@ class authServices{
         if(response.ok){
            await this.login({email,  password})
            return response.json()     
-        }else{
-            throw new Error("something went wrong!!")
         }
+        // else{
+        //     throw new Error("something went wrong!!")
+        // }
 
     }catch(error){
         throw new Error(error?.message);
@@ -41,11 +42,12 @@ class authServices{
 
             if(response.ok) return response.json()
             else{
-                throw new Error("something went wrong!!")
+                const error = await response.json()
+                throw error.errors
             }
     
         }catch(error){
-            throw new Error(error?.message);
+            throw error;
         }
     }
 

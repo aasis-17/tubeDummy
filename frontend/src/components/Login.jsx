@@ -20,15 +20,15 @@ function Login() {
         try{
             const userStatus = await authService.login(data)
             if(userStatus){
-                const userData = await authService.getCurrentUser()
-                console.log(userData)
-                if(userData) {
-                  dispatch(storeLogin(userData))
+                // const userData = await authService.getCurrentUser()
+                // console.log(userData)
+                // if(userData) {
+                // dispatch(storeLogin(userData))
                   navigate("/")
-                }
+                //}
             }
         }catch(error){
-            setHandleError("Password or email does not match !!")
+          setHandleError(error)
         }
     }
 
@@ -40,7 +40,7 @@ function Login() {
 
   if (isLoading) return <div>loading refresh...</div>
 
-  if(data) navigate('/')
+  //if(data) navigate('/')
 
   return  (
     <Container>
