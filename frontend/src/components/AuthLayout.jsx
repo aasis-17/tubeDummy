@@ -6,7 +6,6 @@ function PageProtector({children, authentication = true}) {
   
     const navigate = useNavigate()
     const authStatus = useSelector((state) => state.authReducer.status)
-    console.log(authStatus)
 
     const [isLoading, setIsLoading] = useState(true)
     
