@@ -31,9 +31,7 @@ function YourVideoCard({video}) {
       <div key={video._id} onClick={() =>{navigate(`/video-detail/${video._id}/description`)}} className="relative cursor-pointer bg-white w-full rounded-lg min-h-20 shadow-md">  
         <div className="p-2 flex justify-between items-center w-full ">           
           
-          <img src={video.thumnail} alt={video.title} className="px-2 w-[100px] h-16 object-cover " />
-          
-         
+          <img src={video.thumnail} alt={video.title} className="px-2 w-[100px] h-16 object-cover " />   
           <h4 className="text-lg font-semibold">{video.title}</h4>
           <h3>{useTimeConverterHook(video.createdAt)}</h3>
 
@@ -43,9 +41,6 @@ function YourVideoCard({video}) {
             <FontAwesomeIcon className='w-5 px-2 h-8' icon={faEllipsisVertical} />
           </span>
         </div>
-        {/* <div className='relative '> */}
-
-
           {toggleThreeDots &&
                       <div className='z-10 bg-white shadow-md rounded-lg min-w-32 min-h-22 absolute top-9 right-9 '>
                         
@@ -61,9 +56,6 @@ function YourVideoCard({video}) {
                         } } className='cursor-pointer p-2 hover:bg-slate-50 hover:shadow-lg'>Remove</h3>
                     </div>
           }
-
-        {/* </div> */}
-  
 
       </div>
             {

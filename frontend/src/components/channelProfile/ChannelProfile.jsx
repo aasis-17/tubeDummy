@@ -15,7 +15,6 @@ function ChannelProfile() {
 
     const params = useParams()
     const channelId = params.channelId
-    console.log(channelId, loginUserId)
 
     const dispatch = useDispatch()
 

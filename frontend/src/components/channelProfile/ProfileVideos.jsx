@@ -1,9 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { useOutletContext } from 'react-router-dom'
 
 function ProfileVideos() {
-    //const channelProfile = useSelector(state => state.videoReducer.channelProfile)
+
     const {channelVideos} = useOutletContext()
     console.log(channelVideos)
  

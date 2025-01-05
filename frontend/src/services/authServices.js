@@ -9,19 +9,19 @@ class authServices{
 
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/register`, {
             method : "POST",
-            body : formData
-            
+            body : formData     
         })
+        const data = await response.json()
+
         if(response.ok){
            await this.login({email,  password})
-           return response.json()     
+           return data   
         }
-        // else{
-        //     throw new Error("something went wrong!!")
-        // }
-
+        else{
+            throw data
+        }
     }catch(error){
-        throw new Error(error?.message);
+        throw error
     }
 }
 
@@ -39,11 +39,10 @@ class authServices{
                 }),
                 credentials: 'include'
             })
-
-            if(response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                const error = await response.json()
-                throw error.errors
+                throw data
             }
     
         }catch(error){
@@ -57,13 +56,13 @@ class authServices{
                 method: "POST",
                 credentials : "include"
             })
-            if(response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -77,14 +76,14 @@ class authServices{
                 body : JSON.stringify(formData),
                 credentials : "include"
             })
-           if(response.ok) return response.json()
-           else{
-            throw new Error("something went wrong!!")
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
+            throw error
         }
-
-    }catch(error){
-        throw new Error(error?.message)
-    }
     }
 
     async getCurrentUser(){
@@ -95,13 +94,13 @@ class authServices{
             credentials: 'include'
         } )
 
-        if(response.ok) return response.json()
+        const data = await response.json()
+        if(response.ok) return data
         else{
-            throw new Error("something went wrong!!")
-        }
-
+            throw data
+        }   
     }catch(error){
-        throw new Error(error?.message);
+        throw error
     }
         
     }
@@ -114,12 +113,13 @@ class authServices{
                 }
             )
 
-            if (response.ok) return response.json()
-
-            else throw new Error("Something went wrong!")
-
-        } catch (error) {
-            throw new Error(error?.message)
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
+            throw error
         }
     }
 
@@ -130,15 +130,14 @@ class authServices{
 
                 
             })
-            console.log(response)
-           if(response.ok) return response.json();
+            const data = await response.json()
+            if(response.ok) return data
             else{
-            throw new Error("something went wrong!!")
-        }
-
+                throw data
+            }   
         }catch(error){
-        throw new Error(error?.message);
-    }
+            throw error
+        }
     }
 
     async deactivateAccount (){
@@ -148,11 +147,13 @@ class authServices{
                     method : "DELETE"
                 }
             )
-            if(response.ok) return response.json()
-                else throw new Error("something went wrong")
-        } catch (error) {
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
             throw error
-            
         }
     }
 }

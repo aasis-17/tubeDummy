@@ -8,14 +8,13 @@ class playlistServices {
                     credentials : "include"
                 }
             )
-            console.log(response)
-            if (response.ok){
-               return response.json()
-            }else{
-                throw new Error("Something went wrong")
-            }
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message)
+            throw error
         }
 
     }
@@ -28,14 +27,13 @@ class playlistServices {
                     credentials : "include"
                 }
             )
-            if(response.ok) return response.json()
-
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -47,13 +45,13 @@ class playlistServices {
                     credentials : "include"
                 }
             )
-            if(response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -72,14 +70,14 @@ class playlistServices {
                     }),
                     credentials : "include"
             })
-        if(response.ok) return response.json()
-        else{
-            throw new Error("something went wrong!!")
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
+            throw error
         }
-
-    }catch(error){
-        throw new Error(error?.message);
-    }
     }
 
     async deletePlaylist(playlistId) {
@@ -90,14 +88,14 @@ class playlistServices {
                     credentials : "include"
                 }
             )
-        if(response.ok) return response.json()
-        else{
-            throw new Error("something went wrong!!")
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
+            throw error
         }
-
-    }catch(error){
-        throw new Error(error?.message);
-    }
        
     }
 

@@ -9,9 +9,7 @@ import { PlaylistSection} from '../index'
 import { setChannelProfile, setVideoDetails } from '../../store/videoSlice'
 import {useSelector, useDispatch } from 'react-redux'
 import {useDebounce} from "../../utils/index"
-import { useMutation } from 'react-query'
 import useDataFetch from '../../utils/useDataFetch'
-// import { getVideoById } from '../../../../backendProject/src/controllers/videos.controller'
 import videoService from '../../services/videosService'
 
 

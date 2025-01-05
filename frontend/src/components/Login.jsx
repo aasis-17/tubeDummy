@@ -28,17 +28,17 @@ function Login() {
                 //}
             }
         }catch(error){
-          setHandleError(error)
+          setHandleError(error.message)
         }
     }
 
-  const fetcher = () => {
-    return authService.refreshAccessToken()
-  }
+  // const fetcher = () => {
+  //   return authService.refreshAccessToken()
+  // }
 
-  const {isLoading, data} = useDataFetch(fetcher)
+  // const {isLoading, data} = useDataFetch(fetcher)
 
-  if (isLoading) return <div>loading refresh...</div>
+  // if (isLoading) return <div>loading refresh...</div>
 
   //if(data) navigate('/')
 
@@ -58,7 +58,7 @@ function Login() {
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             placeholder = "Email or username"
             {...register("email", {
-                reuired : true
+                required : true
             })}
              />
              </div>
@@ -72,7 +72,7 @@ function Login() {
             onClick = {() => setHandleError("")}
             placeholder = "password.."
             {...register("password", {
-                reuired : true
+                required : true
             })}
              />
             <InputField

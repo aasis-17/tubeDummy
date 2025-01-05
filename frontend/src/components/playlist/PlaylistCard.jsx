@@ -34,7 +34,6 @@ function PlaylistCard({playlist}) {
         try{
             const response = await playlistService.removeVideoFromPlaylist(playlistId, videoId)
             dispatch(removeVideo({playlistId, videoId}))
-            console.log(response)
             alert( "video removed from" + playlist.name)
         }catch(error){
             setHandleError(error?.message)

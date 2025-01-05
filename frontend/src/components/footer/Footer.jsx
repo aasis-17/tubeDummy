@@ -1,9 +1,7 @@
 import React from 'react'
-import Container from '../container/Container'
 
 function Footer() {
   return (
-    // <Container>
     <div className="text-black sticky ">
        <div className=" mx-auto flex justify-between items-center ">
         <div className="flex space-x-4 ">
@@ -29,7 +27,6 @@ function Footer() {
         </div>
       </div>
       </div>
-    // </Container>
     
   )
 }

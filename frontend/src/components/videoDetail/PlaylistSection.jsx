@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import playlistService from '../../services/playlistService'
 import {PageProtector} from '../index'
 import { useSelector, useDispatch } from 'react-redux'
-import { setChannelPlaylist } from '../../store/playlistSlice'
 import { useDebounce } from '../../utils/index'
 import useDataFetch from '../../utils/useDataFetch'
 

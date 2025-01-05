@@ -3,9 +3,11 @@ import { Login, PageProtector } from '../components'
 
 function LoginPage() {
   return (
-    <PageProtector authentication = {false}>
+    <>
+    {/* <PageProtector authentication = {false}> */}
         <Login />
-    </PageProtector>
+    {/* </PageProtector> */}
+    </>
   )
 }
 

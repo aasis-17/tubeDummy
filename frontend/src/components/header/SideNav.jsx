@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from 'react-router-dom'
 import authService from '../../services/authServices'
 import { logout as storeLogout } from '../../store/authSlice'
-import {Navigation} from '../index'
+
 import { Link } from 'react-router-dom'
 
 function SideNav({sidebar, setSidebar}) {
@@ -16,19 +16,17 @@ function SideNav({sidebar, setSidebar}) {
 
     const loginUserId = useSelector(state => state.authReducer.userData?._id)
 
-    const navigate = useNavigate()
-
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const logout = async () => {
         try{
-            const loggedOut = await authService.logout()
-            if (loggedOut) {
+            const loggedOut = await authService.logout() 
+                setSidebar(false) 
                 dispatch(storeLogout()) 
-                setSidebar(false)        
-                
-            }
-            
+                navigate("/")  
+                location.reload("/")
+
         }catch(error){
             //setError(error?.message)
         } 
@@ -84,12 +82,6 @@ function SideNav({sidebar, setSidebar}) {
     ${sidebar? "" : "-translate-x-full "}  w-[300px] h-[500px] bg-gray-700   bg-opacity-95   transition delay-100 mt-2 `}>
         <nav className=' flex flex-col gap-5 text-lg'>
             <ul className='flex-1 px-5' >
-{/* 
-                <Navigation
-                    navItems={navItems}
-                    logoClassName={'h-6 pr-7 '}
-                    className={"block my-3 py-3.5 px-3  rounded transition duration-200 hover:bg-blue-600 hover:text-white"} 
-                /> */}
 
                 {navItems.map((item) => {
                     if(item.status){

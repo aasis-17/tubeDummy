@@ -24,7 +24,6 @@ function ChangePassword() {
   return (
     <div className="max-w-md  p-6 rounded-lg ">
       <h2 className="text-3xl font-semibold mb-10">Change Password</h2>
-      {/* {isSuccess && <div className="text-green-500 mb-4">{error}</div>} */}
       <form onSubmit={handleSubmit(mutateAsync)} >
         
         <div className="mb-6">

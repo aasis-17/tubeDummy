@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import CommentSection from './CommentSection'
-import { Link, NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
+import {  Outlet } from 'react-router-dom'
 import DescriptionSection from './DescriptionSection'
 import {Navigation} from '../index'
 import { useSelector } from 'react-redux'
@@ -25,7 +24,6 @@ function LeftSection() {
     ]
   return (
     <>
-       {/* <div className="w-1/3  bg-gray-200 p-2 max-h-screen relative"> */}
           <nav className='h-11 flex gap-7  text-center mb-2 '>
 
             <Navigation 
@@ -37,7 +35,6 @@ function LeftSection() {
             <div>
               <Outlet /> 
             </div>
-      {/* </div> */}
       </>
       
   )

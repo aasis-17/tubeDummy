@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import likeService from '../../services/likeServices'
-import { setChannelProfile } from '../../store/videoSlice'
-import { useOutletContext } from 'react-router-dom'
 import useDataFetch from '../../utils/useDataFetch'
 
 function ProfileLikedVideos() {

@@ -17,15 +17,12 @@ function Home() {
   }
   const {isLoading, error, data} = useDataFetch(fetcher, searchTitle)
 
-  console.log(data)
-
   if(isLoading) return <div>loading home...</div>
 
   if(error) return <div>{error?.message}</div>
     
    return  (
     <>
-    {/* <Container className='mt-16'> */}
       <div className="w-full h-full flex-wrap sm:flex sm:justify-evenly  sm:gap-y-6 mt-2" >   
         { data?.data.allVideos?.map((video) => {
           const convertTime = useTimeConverterHook(video.createdAt)
@@ -54,7 +51,6 @@ function Home() {
             )
         })}
         </div>
-        {/* </Container> */}
     </>
   ) 
   

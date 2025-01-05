@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { LogoutBtn,Logo, Search, SideNav } from "../index.js"
+import {Logo, Search, SideNav } from "../index.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -58,12 +58,7 @@ const userData = useSelector((state) => state.authReducer.userData)
             </div>  
                         
                   
-            </div>
-        
-
-        
-        
-    
+            </div>   
   )
 }
 

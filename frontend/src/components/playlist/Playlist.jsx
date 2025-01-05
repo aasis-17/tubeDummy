@@ -29,9 +29,6 @@ function Playlist() {
         dispatch(setChannelPlaylist(data?.data))
     }, [data])
 
-
-    console.log(playlists)
-
     const [toggleCreateBtn, setCreateBtn] = useState(false)
 
     const {register, handleSubmit, reset} = useForm()
@@ -87,7 +84,6 @@ function Playlist() {
       {/* Playlist Column */}
       <div className="flex flex-col gap-6">
         {
-            // data?.data
              playlists?.map((playlist) => (
             <PlaylistCard key={playlist._id}  playlist={playlist}/>  
         ))
@@ -99,8 +95,6 @@ function Playlist() {
   </div>
   )
 }
-
-
 
 
 export default Playlist

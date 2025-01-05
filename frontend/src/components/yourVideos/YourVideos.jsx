@@ -2,15 +2,11 @@ import React, {useState} from 'react'
 import { useMutation, useQuery } from 'react-query'
 import videoService from '../../services/videosService'
 import { useSelector } from 'react-redux'
-import { Link } from "react-router-dom"
 import {YourVideoCard, UploadVideo} from '../index'
-
-
 
 function YourVideos() {
 
   const [toggleVideoForm, setToggleVideoForm] = useState(false)
-  const [toggleVideoEditForm, setToggleVideoEditForm] = useState(false)
 
   const loginUserId = useSelector(state => state.authReducer.userData?._id)
 
@@ -48,9 +44,7 @@ function YourVideos() {
               <UploadVideo setToggleVideoForm={setToggleVideoForm} edit={false} />
             </div>)
             
-          }
-
-    
+          }  
 </div>
   )
 }

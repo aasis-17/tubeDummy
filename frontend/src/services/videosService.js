@@ -6,13 +6,13 @@ class videoServices {
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/video/get-allVideos?query=${query}&userId=${userId}&page=${page}&limit=${limit}&sortBy=${sortBy}&sortType=${sortType}`)
  
-            if (response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -23,13 +23,13 @@ class videoServices {
                     credentials : "include"
                 }
             )
-            if (response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -40,13 +40,13 @@ class videoServices {
                 body : formData,
                 credentials : "include"
             })
-            if (response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -58,13 +58,13 @@ class videoServices {
                     credentials : "include"
                 }
             )
-            if (response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -75,10 +75,13 @@ class videoServices {
                 body : formData,
                 credentials : "include"
             })
-            if (response.ok) return response.json()
-            else throw new Error("Something went wrong!!")
-        } catch (error) {
-            throw new Error(error?.message)
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
+            throw error
         }
     }
 }

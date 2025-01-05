@@ -5,7 +5,6 @@ import userService from '../../services/userServices'
 import { useDispatch, useSelector } from 'react-redux'
 import {VideoSection, LeftSection, PageProtector} from '../index'
 import { setVideoDetails, setChannelProfile} from '../../store/videoSlice'
-import useDataFetch from '../../utils/useDataFetch'
 
 function VideoDetail() {
  
@@ -22,14 +21,12 @@ function VideoDetail() {
       const videoDetail = async() =>{
         try{
           const data = await videoService.getVideoById(videoId, loginUserId)
-          console.log(data)
           dispatch(setVideoDetails(
             {
             detail : data.data,
             userLikedVideo : data.data.isLiked,
           }))
           const videoOwnerProfile  = await userService.getUserProfile(data.data.owner, loginUserId)
-          console.log(videoOwnerProfile)
           dispatch(setChannelProfile(
             {
               channelOwnerProfile : videoOwnerProfile.data,
@@ -54,8 +51,6 @@ function VideoDetail() {
   return (
     <>     
       <div className="flex-wrap p-1 md:flex">
-        {/* <div className="flex flex-1 flex-wrap"> */}
-
                     {/* Video Section */}
 
           <div className=" flex-1 md:mr-2 rounded-lg">

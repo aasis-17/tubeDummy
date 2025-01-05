@@ -4,14 +4,12 @@ import authService from '../services/authServices'
 import {InputField} from '../components/index'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { login } from '../store/authSlice'
 
 function SignUp() {
     
     const [error, setError] = useState("")
     const {register, handleSubmit} = useForm()
     const navigate = useNavigate()
-    const dispatch = useDispatch()
 
     const signUphandler = async(data) => {
       

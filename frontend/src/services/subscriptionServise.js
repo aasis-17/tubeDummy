@@ -7,13 +7,13 @@ class subscriptionServices {
                     credentials : "include"
                 }
             )
-            if (response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
         
     }

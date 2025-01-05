@@ -7,14 +7,14 @@
                 credentials : "include"
             }
         )
-        if(response.ok) return response.json()
+        const data = await response.json()
+        if(response.ok) return data
         else{
-            throw new Error("something went wrong!!")
-        }
-
+            throw data
+        }   
     }catch(error){
-        throw new Error(error?.message);
-    }   
+        throw error
+    } 
     }
 
     async updateDetail (accountDetail){
@@ -28,13 +28,13 @@
                 },
                 credentials : "include"
             })
-            if(response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 
@@ -48,13 +48,13 @@
                 },
                 credentials : "include"
             })
-            if (response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
 
     }
@@ -69,14 +69,14 @@
 
                 }
             )
-        if (response.ok) return response.json()
-        else{
-            throw new Error("something went wrong!!")
+            const data = await response.json()
+            if(response.ok) return data
+            else{
+                throw data
+            }   
+        }catch(error){
+            throw error
         }
-
-    }catch(error){
-        throw new Error(error?.message);
-    }
     }
 
     async updateCoverImage (coverImage){
@@ -89,13 +89,13 @@
 
                 }
             )
-            if(response.ok) return response.json()
+            const data = await response.json()
+            if(response.ok) return data
             else{
-                throw new Error("something went wrong!!")
-            }
-    
+                throw data
+            }   
         }catch(error){
-            throw new Error(error?.message);
+            throw error
         }
     }
 }

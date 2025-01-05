@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import authService from '../services/authServices'
 
 function PageProtector({children, authentication = true}) {
   
@@ -16,9 +15,9 @@ function PageProtector({children, authentication = true}) {
         if(authentication && authStatus !== authentication){
             navigate("/login")
         }
-        // else if(!authentication && authStatus !== authentication){
-        //     navigate("/")
-        // }
+        else if(!authentication && authStatus !== authentication){
+            navigate("/")
+        }
         setIsLoading(false)
 
     },[authStatus, navigate,  authentication])

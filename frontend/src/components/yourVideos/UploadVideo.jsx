@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {useForm} from "react-hook-form"
-import { useNavigate } from 'react-router-dom'
 import { InputField } from "../index"
 import { useMutation, useQueryClient } from 'react-query'
 import videoService from '../../services/videosService'
@@ -38,7 +37,6 @@ function UploadVideo({setToggleVideoForm, edit, video}) {
         formData.append(key, data[key])
       }
     })
-    console.log(formData.get("thumnail"))
     mutateAsync(formData)
   }
 
@@ -56,9 +54,6 @@ function UploadVideo({setToggleVideoForm, edit, video}) {
     reader.readAsDataURL(file)
   
   }
-
-
-
   return (
 
     <div onClick={(e) => e.stopPropagation()} className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg fixed top-28 left-0 right-0 ">
