@@ -127,7 +127,7 @@ class authServices{
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/refreshed-accesstoken`,{
                 method : "POST",
-
+                credentials : "include"
                 
             })
             const data = await response.json()
@@ -144,7 +144,8 @@ class authServices{
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/deactivate-account`,
                 {
-                    method : "DELETE"
+                    method : "DELETE",
+                    credentials : "include"
                 }
             )
             const data = await response.json()
